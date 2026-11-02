@@ -1,4 +1,4 @@
-''' Slight Card Cipher'''
+'' Slight Card Cipher'''
 ''' by KryptoMagick (Karl Zander) '''
 from random import shuffle
 
@@ -18,9 +18,10 @@ class SLIGHT:
         self.deck.append(self.deck.pop(0))
         self.deck.append(self.deck.pop(0))
         self.p = self.deck[self.deck[self.p]]
+        o = self.deck[self.deck[self.p]] % 26
         self.deck[self.p], self.deck[self.c] = self.deck[self.c], self.deck[self.p]
         self.c = (self.c + 1) % 52
-        return self.deck[self.deck[self.p]] % 26
+        return o
          
     def encrypt_letter(self, letter):
         num = ord(letter) - 65
@@ -46,4 +47,4 @@ class SLIGHT:
         for x in range(len(letters)):
             letter = self.decrypt_letter(letters[x])
             ptxt.append(letter)
-        return "".join(ptxt
+        return "".join(ptxt)
